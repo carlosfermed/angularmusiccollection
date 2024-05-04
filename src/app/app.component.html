@@ -1,0 +1,22 @@
+<app-cabecera></app-cabecera>
+<hr><br>
+<form class="divCentral" (ngSubmit)="guardarCancion()" #miForm="ngForm">
+  <span>Canción </span><input type="text" name="cancion" id="cancion" [(ngModel)]="cancion" required><br>
+  <span>Autor </span><input type="text" name="autor" id="autor" [(ngModel)]="autor" required><br>
+  Formato de audio<br>
+  <select name="formatos" id="seleccion" [(ngModel)]="formato" required>
+    <option value="mp3">mp3</option>
+    <option value="wav">wav</option>
+    <option value="ogg">ogg</option>
+  </select>
+  <br><br>
+  <button class="botonEnviar animacion" type="submit" [disabled]="miForm.invalid">Guardar</button>
+</form>
+<div class="divCancionesRegistradas">
+  <h2>Canciones registradas</h2>
+  <ul>
+    <li *ngFor="let song of canciones">{{song.cancion}}<br>{{song.autor}}<br>{{song.formato}}</li>
+  </ul>
+</div>
+<hr><br>
+<app-piedepagina></app-piedepagina>
